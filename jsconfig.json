@@ -1,0 +1,10 @@
+//declare path in jsconfig.json
+
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*":["src/*"]
+        }
+    }
+}
