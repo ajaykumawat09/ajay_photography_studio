@@ -67,7 +67,7 @@ const Drawer = () => {
             </div>
           </div>
 
-          <a href="/services" className="text-lg">Services</a>
+          <a href="/about" className="text-lg">About Us</a>
           <a href="/contact" className="text-lg">Contact</a>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import React from 'react'
-import Haldi from './Haldi'
-import Mehndi from './Mehndi'
-import Candid from './Candid'
-import BridalShoot from './BridalShoot'
+import Haldi from './haldi/Haldi'
+import Mehndi from './mehndi/Mehndi'
+import Candid from './candid/Candid'
+import BridalShoot from './bridalshoot/BridalShoot'
 
 const Weddings = () => {
   return (
