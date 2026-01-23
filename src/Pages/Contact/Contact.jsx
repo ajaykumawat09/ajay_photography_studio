@@ -1,8 +1,15 @@
 import React from 'react'
+import MyMap from './MyMap'
+import MyForm from './MyForm'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <>
+
+    <MyMap/>
+    <MyForm/>
+</>
+
   )
 }
 

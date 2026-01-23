@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useState } from "react";
+import GalleryBanner from "./GalleryBanner";
+import GalleryTabs from "./GalleryTabs";
+import GalleryGrid from "./GalleryGrid";
 
 const Gallery = () => {
-  return (
-    <div>Gallery</div>
-  )
-}
+  const [activeCategory, setActiveCategory] = useState("ALL");
 
-export default Gallery
+  return (
+    <div>
+      {/* Banner */}
+      <GalleryBanner />
+
+      {/* Tabs */}
+      <GalleryTabs
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+      />
+
+      {/* Images */}
+      <GalleryGrid activeCategory={activeCategory} />
+    </div>
+  );
+};
+
+export default Gallery;
