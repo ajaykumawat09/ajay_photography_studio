@@ -1,72 +1,85 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { FaCamera, FaHeart, FaStar, FaUsers } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const CounterBox = ({ end, label }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let start = 0;
-    let speed = end / 80; // speed control (smooth animation)
-
-    const timer = setInterval(() => {
-      start += speed;
-      if (start >= end) {
-        start = end;
-        clearInterval(timer);
-      }
-      setCount(Math.floor(start));
-    }, 30);
-
-    return () => clearInterval(timer);
-  }, [end]);
-
-  return (
-    <div className="flex flex-col text-center my-6">
-      <h1 className="text-5xl font-semibold text-gray-700">
-        {count.toLocaleString()}+
-      </h1>
-      <p className="text-xl text-gray-500 mt-2 tracking-wide">{label}</p>
-    </div>
-  );
-};
+const services = [
+  {
+    title: "Haldi Ceremony",
+    desc: "Vibrant colors and joyful moments captured with artistic flair.",
+    icon: <FaCamera />,
+    bg: "from-orange-400 to-orange-500",
+    link: "/haldi",
+  },
+  {
+    title: "Mehendi Celebration",
+    desc: "Intricate designs and beautiful pre-wedding moments preserved.",
+    icon: <FaHeart />,
+    bg: "from-pink-400 to-rose-500",
+    link: "/mehndi",
+  },
+  {
+    title: "Candid Photography",
+    desc: "Natural, unposed moments that tell your authentic story.",
+    icon: <FaStar />,
+    bg: "from-purple-400 to-pink-500",
+    link: "/candid",
+  },
+  {
+    title: "Bridal Portraits",
+    desc: "Stunning bridal shots showcasing elegance and beauty.",
+    icon: <FaUsers />,
+    bg: "from-orange-400 to-pink-500",
+    link: "/bridalshoot",
+  },
+];
 
 const HomeCount = () => {
   return (
-    <>
-    <div className="relative w-full overflow-hidden">
-          <h3 className="h-full  text-center text-4xl font-extrabold text-pink-300 md:translate-y-4 md:text-8xl xl:text-[9rem]">
-            Why Choose Us
-          </h3>
-          <div className="absolute bottom-0 left-0 h-12 w-full from-white to-transparent md:h-17
-           md:bg-gradient-to-t"></div>
-        </div>
-    <div className="w-full bg-white py-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
+    <section className="py-24 bg-[#fffaf7]">
+      <div className="max-w-7xl mx-auto px-6">
 
-        {/* LEFT SIDE TEXT + COUNTERS */}
-        <div className="flex flex-col justify-center">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-wide mb-10">
-            Nurtured To Perfection
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <span className="inline-block mb-4 px-5 py-2 rounded-full bg-pink-100 text-pink-500 text-sm font-semibold">
+            ✦ OUR SERVICES
+          </span>
+          <h2 className="text-4xl md:text-5xl font-serif">
+            What We <span className="text-pink-500">Offer</span>
           </h2>
-
-          <div className="grid grid-cols-2 gap-8 mt-6">
-            <CounterBox end={13} label="CITIES TRAVELLED" />
-            <CounterBox end={2000} label="PHOTOS DELIVERED" />
-            <CounterBox end={200} label="HAPPY COUPLES" />
-            <CounterBox end={3800} label="VIDEOS PRODUCED" />
-          </div>
         </div>
 
-        {/* RIGHT SIDE IMAGE */}
-        <div>
-          <img
-            src="01.jpg"
-            alt="wedding couple"
-            className="rounded-lg w-full h-full object-cover"
-          />
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((item, index) => (
+            <Link
+              key={index}
+              to={item.link}
+              className="block"
+            >
+              <div className="bg-white rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+
+                {/* Icon */}
+                <div
+                  className={`w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-2xl bg-gradient-to-br ${item.bg} text-white text-2xl group-hover:scale-110 transition`}
+                >
+                  {item.icon}
+                </div>
+
+                <h3 className="text-xl font-serif mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+
+              </div>
+            </Link>
+          ))}
         </div>
 
       </div>
-    </div></>
+    </section>
   );
 };
 

@@ -3,133 +3,177 @@ import {
   FaFacebookF,
   FaInstagram,
   FaYoutube,
-  FaPhone,
   FaPhoneAlt,
-  FaMailchimp,
-  FaLocationArrow,
-  FaSearchLocation,
-  FaClosedCaptioning,
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 
 export const Footer = () => {
-  // fachimp
   return (
-    <footer className="bg-black text-white py-12 px-6 max-w-7xl mx-auto">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-12  md:text-left">
-        <div className="flex flex-col items-center text-center px-4">
-          <a href="/">
-            {" "}
-            <img
-              src="/logo2.png"
-              alt="logo"
-              className="w-40 mb-6 hover:scale-125 transition-transform duration-700 "
-            />
-          </a>
+    <footer className="bg-gradient-to-br from-[#2a0f14] via-[#3b151b] to-[#1a070a] text-white py-16 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
 
-          <p className="hover:text-gray-300 leading-relaxed text-lg">
-            With over a decade of expertise under our belt, we stand as the
-            unrivaled leaders in the realm of pre-wedding photography in Jaipur.
+        {/* LOGO + ABOUT */}
+        <div className="space-y-6">
+          <img
+            src="/logo2.png"
+            alt="logo"
+            className="w-36"
+          />
+          <p className="text-gray-300 leading-relaxed">
+            Capturing your most precious moments with elegance and artistry.
+            Let us tell your love story through our lens.
           </p>
+
+         {/* SOCIAL ICONS */}
+<div className="flex gap-4 pt-2">
+  
+  {/* FACEBOOK */}
+  <a
+    href="#"
+    className="group w-12 h-12 flex items-center justify-center rounded-full
+      bg-white/10 backdrop-blur
+      hover:bg-gradient-to-br hover:from-pink-400 hover:to-orange-400
+      transition-all duration-300"
+  >
+    <FaFacebookF className="text-white text-lg group-hover:scale-110 transition-transform duration-300" />
+  </a>
+
+  {/* INSTAGRAM */}
+  <a
+    href="#"
+    className="group w-12 h-12 flex items-center justify-center rounded-full
+      bg-white/10 backdrop-blur
+      hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500
+      transition-all duration-300"
+  >
+    <FaInstagram className="text-white text-lg group-hover:scale-110 transition-transform duration-300" />
+  </a>
+
+  {/* YOUTUBE */}
+  <a
+    href="#"
+    className="group w-12 h-12 flex items-center justify-center rounded-full
+      bg-white/10 backdrop-blur
+      hover:bg-gradient-to-br hover:from-red-500 hover:to-orange-500
+      transition-all duration-300"
+  >
+    <FaYoutube className="text-white text-lg group-hover:scale-110 transition-transform duration-300" />
+  </a>
+
+</div>
+
         </div>
-        {/* LEFT - Links */}
-        <div> 
-          <h2 className="text-3xl font-semibold mb-6 tracking-wide">Links</h2>
 
-          <ul className="space-y-4 text-lg">
-            <li className="hover:text-gray-300 cursor-pointer">
-              <a href="/">HOME</a>
-            </li>
-
-            <li className="hover:text-gray-300 cursor-pointer">
-              <a href="/gallery">GALLERY</a>
-            </li>
-
-            <li className="hover:text-gray-300 cursor-pointer">
-              <a href="/about">About Us</a>
-            </li>
-
-            <li className="hover:text-gray-300 cursor-pointer">
-              <a href="/contact">CONTACT US</a>
-            </li>
-          </ul>
-        </div>
+        {/* QUICK LINKS */}
         <div>
-          <h2 className="text-3xl font-semibold mb-6 tracking-wide">
-            Weddings
+          <h2 className="text-2xl font-semibold mb-8 flex items-center gap-3">
+            <span className="w-6 h-[2px] bg-pink-500"></span>
+            Quick Links
           </h2>
 
-          <ul className="space-y-4 text-lg uppercase">
-            <li className="hover:text-gray-300 cursor-pointer">
-              <a href="/haldi">Haldi </a>
-            </li>
-
-            <li className="hover:text-gray-300 cursor-pointer">
-              <a href="/mehndi">Mehndi</a>
-            </li>
-
-            <li className="hover:text-gray-300 cursor-pointer">
-              <a href="/candid">Candid</a>
-            </li>
-
-            <li className="hover:text-gray-300 cursor-pointer">
-              <a href="/bridalshoot">Bridal shoot</a>
-            </li>
+          <ul className="space-y-4 text-gray-300">
+            {[
+              { name: "Home", link: "/" },
+              { name: "Gallery", link: "/gallery" },
+              { name: "About Us", link: "/about" },
+              { name: "Contact Us", link: "/contact" },
+            ].map((item, i) => (
+              <li key={i}>
+                <a
+                  href={item.link}
+                  className="group flex items-center gap-3 w-fit"
+                >
+                  <span className="w-0 h-[2px] bg-pink-500 transition-all duration-300 group-hover:w-6"></span>
+                  <span className="group-hover:text-pink-400 transition-colors">
+                    {item.name}
+                  </span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
+        {/* WEDDING SERVICES */}
         <div>
-          <h2 className="text-3xl font-semibold mb-6 tracking-wide">Contact</h2>
+          <h2 className="text-2xl font-semibold mb-8 flex items-center gap-3">
+            <span className="w-6 h-[2px] bg-orange-400"></span>
+            Wedding Services
+          </h2>
 
-          <div className="  space-y-4 text-lg  ">
-            <span className="flex items-center gap-3">
-              {" "}
-              <IoMdMail />{" "}
-              <a href="">
-                {" "}
-                <p>kumawatajay137@gmail.com</p>
-              </a>
-            </span>
-            <span className="flex items-center gap-3">
-              {" "}
-              <FaPhoneAlt />
-              <p> +(91) 7619748778</p>
-            </span>
-            <span className="flex gap-3 items-center">
-            
-           <FaMapMarkerAlt />
-              <p> A- 26 Sen Coloney BaniPark Jaipur </p>
-            </span>
-          </div>
+          <ul className="space-y-4 text-gray-300">
+            {[
+              { name: "Haldi", link: "/haldi" },
+              { name: "Mehendi", link: "/mehndi" },
+              { name: "Candid Photography", link: "/candid" },
+              { name: "Bridal", link: "/bridalshoot" },
+            ].map((item, i) => (
+              <li key={i}>
+                <a
+                  href={item.link}
+                  className="group flex items-center gap-3 w-fit"
+                >
+                  <span className="w-0 h-[2px] bg-orange-400 transition-all duration-300 group-hover:w-6"></span>
+                  <span className="group-hover:text-orange-300 transition-colors">
+                    {item.name}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-      <div className="flex justify-center  gap-6 mt-8 ">
-        <span className="w-7 h-7 flex items-center justify-center rounded-full bg-blue-500 hover:scale-125 transition">
-          <a href="https://facebook.com" target="_blank">
-            {" "}
-            <FaFacebookF size={15} />
-          </a>
-        </span>
-        <span className="w-7 h-7 flex items-center justify-center rounded-full bg-pink-500 hover:scale-125   transition">
-          <a href="https://instagram.com" target="_blank">
-            <FaInstagram size={15} />
-          </a>
-        </span>
-        <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 hover:scale-125 transition">
-          <a href="https://youtube.com" target="_blank">
-            {" "}
-            <FaYoutube size={15} />
-          </a>
-        </span>
+
+       
+        {/* CONTACT */}
+<div>
+  <h2 className="text-2xl font-semibold mb-8 flex items-center gap-3">
+    <span className="w-6 h-[2px] bg-pink-400"></span>
+    Get In Touch
+  </h2>
+
+  <div className="space-y-5 text-gray-300">
+    
+    {/* PHONE */}
+    <div className="group flex items-center gap-4 cursor-pointer">
+      <span className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center
+        group-hover:bg-pink-500 transition">
+        <FaPhoneAlt className="group-hover:text-white transition" />
+      </span>
+      <p className="group-hover:text-white transition">
+        +91 7619748778
+      </p>
+    </div>
+
+    {/* EMAIL */}
+    <div className="group flex items-center gap-4 cursor-pointer">
+      <span className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center
+        group-hover:bg-pink-500 transition">
+        <IoMdMail className="group-hover:text-white transition" />
+      </span>
+      <p className="group-hover:text-white transition">
+        kumawatajay137@gmail.com
+      </p>
+    </div>
+
+    {/* ADDRESS */}
+    <div className="group flex items-start gap-4 cursor-pointer">
+      <span className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center
+        group-hover:bg-pink-500 transition">
+        <FaMapMarkerAlt className="group-hover:text-white transition" />
+      </span>
+      <p className="group-hover:text-white transition">
+        A-26 Sen Colony, Bani Park, Jaipur
+      </p>
+    </div>
+
+  </div>
+</div>
+
       </div>
 
-      {/* Bottom Line */}
-      <div className="border-t border-gray-300 text-center mt-10 pt-6">
-        <p className="text-gray-400 text-lg">
-          ©copyright 2025{" "}
-          <span className="text-yellow-500">Jaipur Wedding Shoot</span>
-        </p>
+      {/* BOTTOM */}
+      <div className="border-t border-white/10 mt-12 pt-6 text-center text-white">
+       © 2026 CK Photography. All rights reserved.
       </div>
     </footer>
   );
