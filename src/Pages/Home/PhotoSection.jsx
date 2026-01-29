@@ -15,10 +15,18 @@ const PhotoSection = () => {
   }, []);
 
   return (
+    <div className="relative w-full overflow-hidden ">
+          <h3 className="h-full  text-center text-4xl font-extrabold text-pink-300 md:translate-y-4 md:text-8xl xl:text-[9rem]">
+            Why Choose Us
+          </h3>
+          <div className="absolute bottom-0 left-0 h-12 w-full from-white to-transparent md:h-17
+           md:bg-gradient-to-t"></div>
+        
     <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 p-5">
-
+      
       {/* COLUMN 1 – SAME AS CENTER */}
       <div className="flex flex-col gap-2">
+        
         <img
           src="1.jpg"
           className="w-full rounded-lg object-cover"
@@ -78,7 +86,7 @@ const PhotoSection = () => {
         <img src="11.JPG" className="w-full rounded-lg object-cover"  data-aos="zoom-in-left"
           data-aos-delay="200" />
       </div>
-
+</div>
     </div>
   );
 };
